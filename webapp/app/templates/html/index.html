@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cities</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Quicksand:wght@500&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #1e1f29;
+        }
+        html {
+            font-family: 'Quicksand',sans-serif;
+            line-height: 1.6;
+            letter-spacing: .1ch;
+        }
+        h1,h2,h3,h4,h5,h6 {
+            font-family: 'Montserrat';
+        }
+        h1 {
+            color: #f8f8f2;
+            margin: 1em 0;
+        }
+        .city {
+            padding: 1em;
+            background-color: #282a36;
+            color: #f8f8f2;
+            margin: 1em 0;
+            border-radius: 7px;
+        }
+        .city-name {
+            margin: 0;
+            display: inline;
+        }
+        .cities {
+            max-width: 512px;
+            margin: 0 auto;
+            display: grid;
+        }
+        .cities>div {
+            width: 100%;
+        }
+        .date {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="cities">
+        <div class="visited">
+            <h1>Visited Cities</h1>
+            {% for city in cities %}
+                <div class="city">
+                    <h2 class="city-name">{{ city.name }}</h2>
+                    <p>
+                        {{ city.state }}
+                        {% if city.date %}
+                        <span class="date">on {{ city.date }}</span>
+                        {% endif %}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
